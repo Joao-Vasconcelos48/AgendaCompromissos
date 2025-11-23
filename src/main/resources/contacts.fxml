@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agenda.ui.ContactsController">
+    <center>
+        <HBox spacing="10">
+            <children>
+                <VBox spacing="6" prefWidth="300">
+                    <children>
+                        <Label text="Contatos" />
+                        <HBox spacing="6">
+                            <ComboBox fx:id="filterContactCombo" HBox.hgrow="ALWAYS" promptText="Filtrar por contato" />
+                            <Button text="Limpar filtros" onAction="#onClearFilter" />
+                        </HBox>
+                        <ListView fx:id="listView" VBox.vgrow="ALWAYS" />
+                        <HBox spacing="6">
+                            <Button text="Novo" onAction="#onNew" />
+                            <Button text="Exportar CSV" onAction="#onExportCsv" />
+                            <Button text="Voltar ao Menu" onAction="#onBackToMenu" />
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
+                </VBox>
+
+                <VBox spacing="8" VBox.vgrow="ALWAYS">
+                    <children>
+                        <GridPane hgap="8" vgap="8">
+                            <children>
+                                <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                <TextField fx:id="nomeField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                                <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                                <Label text="Telefone:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                <TextField fx:id="telefoneField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                            </children>
+                        </GridPane>
+
+                        <HBox spacing="6">
+                            <Button fx:id="saveButton" text="Salvar" onAction="#onSave" />
+                            <Button fx:id="deleteButton" text="Excluir" onAction="#onDelete" disable="true" />
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
+                </VBox>
+            </children>
+        </HBox>
+    </center>
+</BorderPane>

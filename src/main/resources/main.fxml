@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agenda.ui.MainController">
+    <center>
+        <SplitPane orientation="HORIZONTAL">
+            <items>
+                <VBox spacing="6" prefWidth="250" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label text="Contatos" />
+                        <ListView fx:id="listView" VBox.vgrow="ALWAYS" />
+                        <HBox spacing="6">
+                            <Button text="Novo" onAction="#onNew" />
+                            <Button text="Exportar CSV" onAction="#onExportCsv" />
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
+                </VBox>
+
+                <VBox spacing="8" BorderPane.alignment="CENTER">
+                    <children>
+                        <!-- Contato form -->
+                        <GridPane hgap="8" vgap="8">
+                            <children>
+                                <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                <TextField fx:id="nomeField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                                <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                                <Label text="Telefone:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                <TextField fx:id="telefoneField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                            </children>
+                        </GridPane>
+
+                        <HBox spacing="6">
+                            <Button fx:id="saveButton" text="Salvar" onAction="#onSave" />
+                            <Button fx:id="deleteButton" text="Excluir" onAction="#onDelete" disable="true" />
+                        </HBox>
+
+                        <!-- Compromissos section -->
+                        <Separator />
+                        <Label text="Compromissos" />
+                        <ListView fx:id="compListView" prefHeight="150" VBox.vgrow="ALWAYS" />
+
+                        <GridPane hgap="8" vgap="8">
+                            <children>
+                                <Label text="Data:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                <DatePicker fx:id="datePicker" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                                <Label text="Hora (HH:mm):" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                <TextField fx:id="timeField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                                <Label text="Local:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                <TextField fx:id="localField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                                <Label text="Online:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                                <CheckBox fx:id="onlineCheck" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                            </children>
+                        </GridPane>
+
+                        <HBox spacing="6">
+                            <Button fx:id="saveCompButton" text="Salvar Compromisso" onAction="#onSaveComp" />
+                            <Button fx:id="deleteCompButton" text="Excluir Compromisso" onAction="#onDeleteComp" disable="true" />
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
+                </VBox>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agenda.ui.CompromissoController">
+    <center>
+        <HBox spacing="10">
+            <children>
+                <VBox spacing="6" prefWidth="320">
+                    <children>
+                        <Label text="Compromissos" />
+                        <ComboBox fx:id="filterContatoCombo" promptText="Filtrar por contato" />
+                        <Button text="Limpar filtros" onAction="#onClearFilters" />
+                        <HBox spacing="6">
+                            <DatePicker fx:id="startDatePicker" promptText="Data início" />
+                            <DatePicker fx:id="endDatePicker" promptText="Data fim" />
+                        </HBox>
+                        <ListView fx:id="compListView" VBox.vgrow="ALWAYS" />
+                        <HBox spacing="6">
+                            <Button text="Novo" onAction="#onNewComp" />
+                            <Button text="Exportar CSV" onAction="#onExportCompCsv" />
+                            <Button text="Voltar ao Menu" onAction="#onBackToMenu" />
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
+                </VBox>
+
+                <VBox spacing="8" VBox.vgrow="ALWAYS">
+                    <children>
+                        <GridPane hgap="8" vgap="8">
+                            <children>
+                                <Label text="Contato:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                <ComboBox fx:id="contatoCombo" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                                <Label text="Data:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                <DatePicker fx:id="datePicker" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                                <Label text="Hora (HH:mm):" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                <TextField fx:id="timeField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                                <Label text="Local:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                                <TextField fx:id="localField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                                <Label text="Descrição:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                                <TextArea fx:id="descricaoArea" GridPane.rowIndex="4" GridPane.columnIndex="1" prefRowCount="3" wrapText="true" promptText="Breve descrição do compromisso" />
+
+                                <Label text="Online:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                                <CheckBox fx:id="onlineCheck" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                            </children>
+                        </GridPane>
+
+                        <HBox spacing="6">
+                            <Button fx:id="saveCompButton" text="Salvar" onAction="#onSaveComp" />
+                            <Button fx:id="deleteCompButton" text="Excluir" onAction="#onDeleteComp" disable="true" />
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
+                </VBox>
+            </children>
+        </HBox>
+    </center>
+</BorderPane>

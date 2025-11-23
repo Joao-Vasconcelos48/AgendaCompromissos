@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agenda.ui.MenuController" alignment="CENTER" spacing="16">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+    <Label text="Agenda" style="-fx-font-size: 24px;" />
+
+    <!-- botão centralizado verticalmente e horizontalmente -->
+    <VBox spacing="12" alignment="CENTER">
+        <children>
+            <Button text="Contatos" onAction="#onOpenContatos" prefWidth="220" />
+            <Button text="Compromissos" onAction="#onOpenCompromissos" prefWidth="220" />
+        </children>
+    </VBox>
+
+    <Label text="Escolha uma opção acima" />
+</VBox>
